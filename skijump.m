@@ -98,9 +98,10 @@ plot(u,v,'-o');
 % off the end at a 30 degree angle from the horizontal.
 % 
 % Find a polynomial whose graph is a side view of the ski jump.
-A = [43200 240 1 0; 0 0 0 1; 1728000 14400 120 1];
-y = [0.75 100 10]';
+A = [43200 240 1 0; 0 0 1 0 ; 0 0 0 1; 1728000 14400 120 1];
+y = [0.5236 0 100 10]';
 p = A\y
+
 % What are the start and finish slopes for the ski jump?
 % 
 % See Part H
@@ -108,10 +109,10 @@ p = A\y
 
 % Part H
 % As in (b), check your answer to (e) visually:
-u = 0:0.1:120
-v = polyval(p, u) 
-d = polyder(p) 
-q = polyval(d, u)
+u = 0:0.1:120;
+v = polyval(p, u);
+d = polyder(p);
+q = polyval(d, u);
 q(1)     % Start slope
 q(1201)  % Finish slope
 plot(u,v);
